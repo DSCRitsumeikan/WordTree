@@ -2,6 +2,7 @@ package infrastructure
 
 import (
 	"WordTree/config"
+	"WordTree/model"
 	"fmt"
 	"time"
 
@@ -51,7 +52,12 @@ func openDBWithTimeLimit(dsn string, count int) (*gorm.DB, error) {
 
 func autoMigrate(db *gorm.DB) {
 	err := db.AutoMigrate(
-	// new()
+		new(model.User),
+		new(model.CacheImage),
+		new(model.SessionTag),
+		new(model.Session),
+		new(model.WordDefinition),
+		new(model.WordNode),
 	)
 	if err != nil {
 		panic(err)
