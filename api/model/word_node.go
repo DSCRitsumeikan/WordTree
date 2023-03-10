@@ -4,6 +4,7 @@ import "time"
 
 type WordNode struct {
 	ID               uint           `gorm:"primarykey" json:"id"`
+	UUID             string         `json:"uuid"`
 	UserID           uint           `json:"user_id"`
 	User             User           `json:"user"`
 	ParentNodeID     uint           `json:"parent_node_id"`
