@@ -54,7 +54,6 @@ func autoMigrate(db *gorm.DB) {
 	err := db.AutoMigrate(
 		new(model.User),
 		new(model.CacheImage),
-		new(model.SessionTag),
 		new(model.Session),
 		new(model.WordDefinition),
 		new(model.WordNode),

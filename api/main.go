@@ -7,5 +7,6 @@ import (
 
 func main() {
 	_ = infrastructure.InitDB()
+	infrastructure.NewRouter()
 	fmt.Println("hello")
 }
