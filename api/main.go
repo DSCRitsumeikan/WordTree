@@ -1,12 +1,13 @@
 package main
 
 import (
+	"WordTree/controller"
 	"WordTree/infrastructure"
 	"fmt"
 )
 
 func main() {
 	_ = infrastructure.InitDB()
-	infrastructure.NewRouter()
+	controller.NewRouter()
 	fmt.Println("hello")
 }

@@ -10,8 +10,14 @@ import (
 	"gorm.io/gorm"
 )
 
+var db *gorm.DB
+
 func InitDB() *gorm.DB {
-	db := InitGorm()
+	db = InitGorm()
+	return db
+}
+
+func GetDB() *gorm.DB {
 	return db
 }
 
