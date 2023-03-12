@@ -10,8 +10,14 @@ import (
 	"gorm.io/gorm"
 )
 
+var db *gorm.DB
+
 func InitDB() *gorm.DB {
-	db := InitGorm()
+	db = InitGorm()
+	return db
+}
+
+func GetDB() *gorm.DB {
 	return db
 }
 
@@ -54,10 +60,11 @@ func autoMigrate(db *gorm.DB) {
 	err := db.AutoMigrate(
 		new(model.User),
 		new(model.CacheImage),
-		new(model.SessionTag),
 		new(model.Session),
 		new(model.WordDefinition),
 		new(model.WordNode),
+		new(model.CurrentNodeRelation),
+		new(model.WordNodeChildren),
 	)
 	if err != nil {
 		panic(err)

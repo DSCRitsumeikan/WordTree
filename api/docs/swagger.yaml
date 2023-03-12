@@ -1,0 +1,71 @@
+definitions:
+  model.User:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      last_active_at:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+    type: object
+  model.WordDefinition:
+    properties:
+      id:
+        type: integer
+      keyword:
+        type: string
+      meaning:
+        type: string
+      word_name:
+        type: string
+    type: object
+  model.WordNode:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      left_node:
+        $ref: '#/definitions/model.WordNode'
+      left_node_id:
+        type: integer
+      parent_node:
+        $ref: '#/definitions/model.WordNode'
+      parent_node_id:
+        type: integer
+      right_node:
+        $ref: '#/definitions/model.WordNode'
+      right_node_id:
+        type: integer
+      user:
+        $ref: '#/definitions/model.User'
+      user_id:
+        type: integer
+      uuid:
+        type: string
+      word_definition:
+        $ref: '#/definitions/model.WordDefinition'
+      word_definition_id:
+        type: integer
+    type: object
+info:
+  contact: {}
+paths:
+  /api/word/search:
+    get:
+      consumes:
+      - application/json
+      description: search word
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.WordNode'
+      summary: word search
+swagger: "2.0"
