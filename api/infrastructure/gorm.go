@@ -57,6 +57,8 @@ func autoMigrate(db *gorm.DB) {
 		new(model.Session),
 		new(model.WordDefinition),
 		new(model.WordNode),
+		new(model.CurrentNodeRelation),
+		new(model.WordNodeChildren),
 	)
 	if err != nil {
 		panic(err)
